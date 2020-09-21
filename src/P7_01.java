@@ -9,8 +9,6 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class P7_01 {
-
-
     public static void main(String[] args) throws FileNotFoundException {
         writeToFile("hello.txt");
         printFileContents("hello.txt");
