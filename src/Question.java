@@ -12,11 +12,11 @@ public class Question {
     }
 
     public void setAnswer(String crctResp){
-        answer = crctResp;
+        answer = crctResp.toLowerCase();
     }
 
     public boolean checkAnswer(String response){
-        return response.equals(answer);
+        return response.toLowerCase().equals(answer);
     }
 
     public void display(){
