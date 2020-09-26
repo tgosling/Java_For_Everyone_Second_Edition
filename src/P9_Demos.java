@@ -1,4 +1,7 @@
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class P9_Demos {
     public static void main(String[] args){
@@ -20,5 +23,31 @@ public class P9_Demos {
         System.out.println(pos1);
         System.out.println(pos2);
         System.out.printf("The average height of persons in array = %f", avg);
+
+        Scanner in = new Scanner(System.in);
+        String str = in.nextLine();
+        Object[] objects = str.split(" ");
+        ArrayList<Object> arr = new ArrayList<Object>(Arrays.asList(objects));
+
+        ArrayList<Object> arr2 = collectAll(arr, new P9_17Filter(){
+            public boolean accept(Object x){
+                return x.toString().length() < 5;
+            }
+        });
+
+        for(Object o : arr2){
+            System.out.println(o);
+        }
+
+
+    }
+
+    public static ArrayList<Object> collectAll(ArrayList<Object> objects, P9_17Filter f){
+        ArrayList<Object> hold = new ArrayList<Object>();
+        for(Object o : objects){
+            if(f.accept(o))
+                hold.add(o);
+        }
+        return hold;
     }
 }
