@@ -1,5 +1,19 @@
 public class LinkedList {
+    public static void main(String []args) {
+        LinkedList seasons = new LinkedList();
+        seasons.printList();
 
+        seasons.addToHead("summer");
+        seasons.addToHead("spring");
+        seasons.printList();
+
+        seasons.addToTail("fall");
+        seasons.addToTail("winter");
+        seasons.printList();
+
+        seasons.removeHead();
+        seasons.printList();
+    }
     public Node head;
 
     public LinkedList() {
@@ -15,6 +29,15 @@ public class LinkedList {
         }
     }
 
+    public String removeHead(){
+        Node removedHead = this.head;
+        if(removedHead == null){
+            return null;
+        }
+        this.head = removedHead.getNextNode();
+        return removedHead.data;
+    }
+
     public void addToTail(String data) {
         Node tail = this.head;
         if (tail == null) {
@@ -27,8 +50,18 @@ public class LinkedList {
         }
     }
 
-    public static void main(String []args) {
-
+    public String printList(){
+        String output = "<head> ";
+        Node currentNode = this.head;
+        while(currentNode != null){
+            output += currentNode.data + " ";
+            currentNode = currentNode.getNextNode();
+        }
+        output += "<tail>";
+        System.out.println(output);
+        return output;
     }
+
+
 
 }
